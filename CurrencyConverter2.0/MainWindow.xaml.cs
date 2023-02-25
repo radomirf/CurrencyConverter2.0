@@ -30,6 +30,7 @@ namespace CurrencyConverter2._0
             public double EUR   { get; set; }
             public double JPY { get; set; }
             public double TRY { get; set; }
+            public double RUB { get; set; } 
         }
         
         public MainWindow()
@@ -149,6 +150,7 @@ namespace CurrencyConverter2._0
             dt.Rows.Add("EUR", val.rates.EUR); 
             dt.Rows.Add("JPY", val.rates.JPY);
             dt.Rows.Add("TRY", val.rates.TRY);
+            dt.Rows.Add("RUB", val.rates.RUB);
 
             cmbFromCurrency.ItemsSource = dt.DefaultView;
             cmbFromCurrency.DisplayMemberPath = "Text";
@@ -160,7 +162,6 @@ namespace CurrencyConverter2._0
             cmbToCurrency.SelectedValuePath = "Value";
             cmbToCurrency.SelectedIndex = 0;
         }
-
 
 
     }
