@@ -6,6 +6,8 @@ using System.Data;
 using System.Text.RegularExpressions;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Windows.Controls;
+
 namespace CurrencyConverter2._0
 {
  
@@ -163,7 +165,19 @@ namespace CurrencyConverter2._0
             cmbToCurrency.SelectedIndex = 0;
         }
 
+        private void TabItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var tabItem = sender as TabItem;
+            if (tabItem != null)
+            {
+                MessageBox.Show(tabItem.Header.ToString());
+            }
+        }
 
+        private void cmbFromCurrency_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
 }

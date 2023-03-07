@@ -98,9 +98,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Images\logo.jpg" />
+    <Resource Include="Images\Background.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Arrows.jpg" />

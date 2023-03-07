@@ -5,15 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrencyConverter2._0"
         mc:Ignorable="d"
-       Title="Currency Converter2.0" SizeToContent="Height" Width="900" MinHeight="500" MinWidth="900" WindowStartupLocation="CenterScreen" Icon="Images\logo.jpg" >
+       Title="Currency Converter2.0" SizeToContent="Height" Width="900" MinHeight="500" MinWidth="900" WindowStartupLocation="CenterScreen" Icon="Images\Background.jpg" >
     <Window.Resources>
         <Style x:Key="TabItemStyle" TargetType="TabItem">
-            <!--<Setter Property="Background" Value="#ec2075"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Margin" Value="0,0,10,0"/>
-            <Setter Property="Width" Value="290"/>
-            <Setter Property="Padding" Value="12,10,12,10"/>-->
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TabItem">
@@ -22,10 +17,10 @@
                                 <Grid>
                                     <Border x:Name="border" 
                                             CornerRadius="3,3,0,0"
-                                            Background="#ec2075"
+                                            Background="#FFFF700B"
                                             Margin="5,0,5,0"
                                             Width="280"
-                                            Padding="12,10,12,10"/>
+                                            Padding="12,10,12,10" />
                                 </Grid>
                                 <ContentPresenter ContentSource="Header"
                                                       HorizontalAlignment="Center"
@@ -37,36 +32,41 @@
                                      Value="True">
                                 <Setter TargetName="border"
                                         Property="Background"
-                                        Value="Pink" />
+                                        Value="#FFFF700B" />
                             </Trigger>
                             <Trigger Property="IsSelected"
                                      Value="True">
                                 <Setter TargetName="border"
                                         Property="Background"
-                                        Value="#a02256" />
-                              
+                                        Value="#FFFF700B" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
     </Window.Resources>
+
     <Grid>
 
-        <TabControl>
+
+        <TabControl Height="484" VerticalAlignment="Bottom">
             <TabItem Header="News" Style="{DynamicResource TabItemStyle}">
                 <Grid>
 
                 </Grid>
 
             </TabItem>
-            <TabItem Header="Converter" Style="{DynamicResource TabItemStyle}">
-                 <Grid>
+            <TabItem Header="Converter" Style="{DynamicResource TabItemStyle}" MouseLeftButtonUp="TabItem_MouseLeftButtonDown">
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Images\Background.jpg"></ImageBrush>
+                    </Grid.Background>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="65*"/>
-                        <ColumnDefinition Width="382*"/>
+                        <ColumnDefinition Width="55*"/>
+                        <ColumnDefinition Width="327*"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
@@ -75,51 +75,56 @@
                         <RowDefinition Height="200"></RowDefinition>
                         <RowDefinition Height="100"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Border Grid.Row="2"  Width="800" CornerRadius="10" BorderThickness="5" Grid.ColumnSpan="2" Margin="47,0,47,0">
+                    <Border  Width="800" CornerRadius="10" BorderThickness="5" Grid.ColumnSpan="3" Margin="47,30,47,140" Grid.RowSpan="3">
                         <Border.BorderBrush>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                <GradientStop Color="#ec2075" Offset="0.0"/>
-                                <GradientStop Color="#f33944" Offset="0.5"/>
+                                <GradientStop Color="Black" Offset="0.0"/>
+                                <GradientStop Color="Black" Offset="0.5"/>
                             </LinearGradientBrush>
                         </Border.BorderBrush>
-                        <Rectangle Grid.Row="2">
+                        <Rectangle Grid.Row="2" Height="185" VerticalAlignment="Bottom">
                             <Rectangle.Fill>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                    <GradientStop Color="#ec2075" Offset="0.0"/>
-                                    <GradientStop Color="#f33944" Offset="1.0"/>
+                                    <GradientStop Color="#FFFF700B" Offset="0.0"/>
+                                    <GradientStop Color="#FFFF700B" Offset="1.0"/>
                                 </LinearGradientBrush>
                             </Rectangle.Fill>
                         </Rectangle>
                     </Border>
-                    <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left" Height="80" Width="800" Grid.ColumnSpan="2" Margin="47,10,0,10">
-                        <Label Height="40" Width="800" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Converted Currency" FontSize="20"></Label>
-                        <Label Name="lblCurrency" Height="40" Width="800" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></Label>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="800" Grid.ColumnSpan="3" Margin="47,30,0,0" Grid.RowSpan="2">
+                        <Label Height="40" Width="342" Content="Enter Amount : " Margin="35 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
+                        <Label Height="40" Width="69" Content="From : " Margin="110 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
+                        <Label Height="40" Width="42" Content="To : " Margin="130 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
                     </StackPanel>
-                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="800" Grid.ColumnSpan="2" Margin="47,0,0,0">
-                        <Label Height="40" Width="150" Content="Enter Amount : " Margin="35 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
-                        <Label Height="40" Width="150" Content="From : " Margin="110 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
-                        <Label Height="40" Width="150" Content="To : " Margin="130 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20"></Label>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Height="175" Width="800" VerticalAlignment="Bottom" Grid.ColumnSpan="3" Margin="47,0,0,90" Grid.RowSpan="2">
+                        <TextBox Name="txtCurrency" Width="148" Height="28" Margin="40 0 0 0" PreviewTextInput="NumberValidationTextBox" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top"></TextBox>
+                        <Label Height="40" Width="106" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Converted Currency" FontSize="20"/>
+                        <Label x:Name="lblCurrency" Height="40" Width="127" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Background="Transparent" RenderTransformOrigin="-1.408,0.487"/>
+                        <ComboBox Name="cmbFromCurrency" Width="95" Height="30" Margin="60 0 40 0" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" MaxDropDownHeight="150" SelectionChanged="cmbFromCurrency_SelectionChanged"></ComboBox>
+                        <ComboBox Name="cmbToCurrency" Width="85" Height="30" Margin="40 0 0 0" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" MaxDropDownHeight="150"></ComboBox>
                     </StackPanel>
-                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Height="90" Width="800" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Margin="47,0,0,0">
-                        <TextBox Name="txtCurrency" Width="200" Height="30" Margin="40 0 0 0" PreviewTextInput="NumberValidationTextBox" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top"></TextBox>
-                        <ComboBox Name="cmbFromCurrency" Width="170" Height="30" Margin="60 0 40 0" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" MaxDropDownHeight="150"></ComboBox>
-                        <Image Source="Images/Arrows.jpg" Height="30" VerticalAlignment="Top"/>
-                        <ComboBox Name="cmbToCurrency" Width="170" Height="30" Margin="40 0 0 0" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" MaxDropDownHeight="150"></ComboBox>
-                    </StackPanel>
-                    <StackPanel Grid.Row="3" Height="100" Width="800" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="47,0,47,0">
-                        <Button Name="Convert" Height="40" Width="150" Content="Convert" Click="Convert_Click" Margin="250 0 20 0" Foreground="White" FontSize="20" Style="{StaticResource ButtonRound}">
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="363,0,64,79" Grid.RowSpan="2" Grid.Column="2">
+                        <Button x:Name="Convert" Height="40" Width="110" Content="Convert" Click="Convert_Click" Foreground="White" FontSize="20" Style="{StaticResource ButtonRound}">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="15" ShadowDepth="0"/>
+                            </Button.Effect>
                             <Button.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                    <GradientStop Color="#ec2075" Offset="0.0"/>
-                                    <GradientStop Color="#f33944" Offset="0.5"/>
+                                    <GradientStop Color="Black" Offset="0.0"/>
+                                    <GradientStop Color="Black" Offset="0.5"/>
                                 </LinearGradientBrush>
                             </Button.Background>
+
                         </Button>
-                        <Button Name="Clear" Height="40" Width="150" Content="Clear" Click="Clear_Click" Foreground="White" FontSize="20" Style="{StaticResource ButtonRound}">
+                        <Button x:Name="Clear" Height="40" Width="110" Content="Clear" Click="Clear_Click" Foreground="White" FontSize="20" Style="{StaticResource ButtonRound}">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="15" ShadowDepth="0"/>
+                            </Button.Effect>
                             <Button.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                    <GradientStop Color="#ec2075" Offset="0.5"/>
-                                    <GradientStop Color="#f33944" Offset="0.0"/>
+                                    <GradientStop Color="Black" Offset="0.5"/>
+                                    <GradientStop Color="Black" Offset="0.0"/>
                                 </LinearGradientBrush>
                             </Button.Background>
                         </Button>
@@ -128,7 +133,7 @@
                 </Grid>
 
             </TabItem>
-    <TabItem Header="History" Style="{DynamicResource TabItemStyle}">
+            <TabItem Header="History" Style="{DynamicResource TabItemStyle}">
                 <Grid>
 
                 </Grid>
